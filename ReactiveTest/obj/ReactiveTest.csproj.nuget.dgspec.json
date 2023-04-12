@@ -1,26 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ReactiveTest\\ReactiveTest.csproj": {}
+    "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ReactiveTest\\ReactiveTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ReactiveTest\\ReactiveTest.csproj": {
+    "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ReactiveTest\\ReactiveTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ReactiveTest\\ReactiveTest.csproj",
+        "projectUniqueName": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ReactiveTest\\ReactiveTest.csproj",
         "projectName": "ReactiveTest",
-        "projectPath": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ReactiveTest\\ReactiveTest.csproj",
-        "packagesPath": "C:\\Users\\theob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ReactiveTest\\obj\\",
+        "projectPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ReactiveTest\\ReactiveTest.csproj",
+        "packagesPath": "C:\\Users\\beyer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ReactiveTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\theob\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\beyer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://tfs.siplaceworld.net/tfs/DefaultCollection/_packaging/ASM-NuGet/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -63,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

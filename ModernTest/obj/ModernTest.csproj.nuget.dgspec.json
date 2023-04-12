@@ -1,26 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ModernTest\\ModernTest.csproj": {}
+    "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ClientLibrary\\ClientLibrary.csproj": {
+    "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ClientLibrary\\ClientLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
         "projectName": "ClientLibrary",
-        "projectPath": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ClientLibrary\\ClientLibrary.csproj",
-        "packagesPath": "C:\\Users\\theob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ClientLibrary\\obj\\",
+        "projectPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
+        "packagesPath": "C:\\Users\\beyer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\theob\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\beyer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://tfs.siplaceworld.net/tfs/DefaultCollection/_packaging/ASM-NuGet/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -37,6 +40,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -53,34 +62,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ModernTest\\ModernTest.csproj": {
+    "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ModernTest\\ModernTest.csproj",
+        "projectUniqueName": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
         "projectName": "ModernTest",
-        "projectPath": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ModernTest\\ModernTest.csproj",
-        "packagesPath": "C:\\Users\\theob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ModernTest\\obj\\",
+        "projectPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
+        "packagesPath": "C:\\Users\\beyer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ModernTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\theob\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\beyer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://tfs.siplaceworld.net/tfs/DefaultCollection/_packaging/ASM-NuGet/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ClientLibrary\\ClientLibrary.csproj": {
-                "projectPath": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ClientLibrary\\ClientLibrary.csproj"
+              "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {
+                "projectPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj"
               }
             }
           }
@@ -124,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
         }
       }
     }

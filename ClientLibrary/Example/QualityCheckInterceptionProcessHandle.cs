@@ -1,15 +1,12 @@
 ﻿namespace ClientLibrary;
 
-public interface IQualityCheckInterceptionProcessHandle : IProcessHandle
+public interface IQualityCheckInterceptionProcessHandle : IProcessHandle, IDecisionRequest<QualityCheckApproval>
 {
-  QualityScanData Quality { get; }
-  
-  ChangeCarvingPatternProcessStatus Status { get; }
-  
-  Task<Result> Answer(QualityCheckInterceptionProcessStatus status);
+	QualityScanData Quality { get; }
 }
 
-public enum QualityCheckInterceptionProcessStatus {
-  WaitingForAnswer,
-  Answered,
+public enum QualityCheckApproval
+{
+	Approved,
+	Denied,
 }

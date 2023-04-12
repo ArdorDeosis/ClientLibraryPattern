@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CCP5cWkeLw78q+BJ4ESBM0kV73v980tIIPH2VNaVRWkXJroj+m47Ft5Cegi0O89iIs7a7sLgO82MIhSdkGjGew==",
+  "dgSpecHash": "+HYInsD+RNcmGhxdeOmuNhQXEhge2CosQRL/d/N3LNYL+zpyx8vK0XK/BkffDLYSCnmv5RygJzkKRJr5ZRKWPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\theob\\RiderProjects\\ClientLibrary\\ClientLibrary\\ClientLibrary.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\beyer\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

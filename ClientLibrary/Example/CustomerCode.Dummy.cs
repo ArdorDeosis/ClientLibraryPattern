@@ -2,13 +2,6 @@
 
 internal partial class CustomerCode
 {
-  internal async Task StopMachine()
-  {
-    var result = await client.StopProduction();
-    if (result.IsError)
-      Console.WriteLine($"could not stop production: {result.ErrorMessage}");
-  }
-
   private void HandleMachineStateChanged(PokeballCarvingStationProductionState state)
   {
     // if machine is in error state, alert personnel
@@ -19,7 +12,12 @@ internal partial class CustomerCode
     // do something with the result, e.g. save it to a database
   }
 
-  private QualityCheckInterceptionProcessStatus CheckQuality(QualityScanData handleQuality)
+  private QualityCheckApproval CheckQuality(QualityScanData handleQuality)
+  {
+    throw new NotImplementedException();
+  }
+
+  private void DoStuffWith(params object[] arguments)
   {
     throw new NotImplementedException();
   }

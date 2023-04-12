@@ -2,15 +2,47 @@
 
 public interface IPokeballCarvingStationClient
 {
+  /// <summary>
+  /// Starts the pokeball production.
+  /// </summary>
   Task<Result> StartProduction();
-  Task<Result> StopProduction();
 
+  /// <summary>
+  /// Gets the machine's ID.
+  /// </summary>
+  Task<Result<Guid>> GetMachineId();
+
+  /// <summary>
+  /// Triggers a process to stop production.
+  /// </summary>
+  Task<Result<IStopProductionProcessHandle>> StopProduction();
+
+  // OPTION 1
+  
+  /// <summary>
+  /// Retrieves the state from the machine. 
+  /// </summary>
   Task<Result<PokeballCarvingStationProductionState>> GetState();
-  IDisposable SubscribeToStateChanged(Action<PokeballCarvingStationProductionState> eventHandler);
   
-  IDisposable SubscribeToPokeballFinished(Action<PokeballProductionResult> eventHandler);
+  /// <summary>
+  /// Registers for state updates.
+  /// </summary>
+  Task<Result<IRegistration<PokeballCarvingStationProductionState>>> RegisterForStateStream();
   
-  Task<Result<IChangeCarvingPatternProcessHandle>> ChangeCarvingPattern(CarvingPattern pattern);
+  // OPTION 2
   
-  IDisposable RegisterQualityCheckInterceptor(Action<IQualityCheckInterceptionProcessHandle> processHandler);
+  /// <summary>
+  /// The current machine state, if available.
+  /// </summary>
+  PokeballCarvingStationProductionState? State { get; }
+  
+  /// <summary>
+  /// The current machine state as observable.
+  /// </summary>
+  IObservable<PokeballCarvingStationProductionState> ObservableState { get; }
+
+  /// <summary>
+  /// Registers for quality check interception.
+  /// </summary>
+  Task<Result<IRegistration<IQualityCheckInterceptionProcessHandle>>> RegisterQualityCheckInterceptor();
 }
