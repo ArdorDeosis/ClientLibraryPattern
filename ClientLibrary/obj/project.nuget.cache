@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1LzVYtEXA8OxcU+J5KRinysV5ffUML2KONSMxkJ5vG6P2o/Mn2pMrc1tisQG+DNujv8qmJQy/9Zp6CPktDS1Yw==",
+  "dgSpecHash": "T/FVtPcmojyTQOwQJtbqS1KCa/9QJDpPauRDNZOEaHGvF6gBgtNF7H2cbpXc0BobHRf8PGCCmzyjR+gWsF4fYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
+  "projectFilePath": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\u3585\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512"
+    "C:\\Users\\theob\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

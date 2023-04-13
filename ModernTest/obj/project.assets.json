@@ -273,34 +273,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\u3585\\.nuget\\packages\\": {}
+    "C:\\Users\\theob\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
+      "projectUniqueName": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
       "projectName": "ModernTest",
-      "projectPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
-      "packagesPath": "C:\\Users\\u3585\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ModernTest\\obj\\",
+      "projectPath": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
+      "packagesPath": "C:\\Users\\theob\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ModernTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\u3585\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\theob\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {
-              "projectPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj"
+            "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {
+              "projectPath": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj"
             }
           }
         }
@@ -344,7 +342,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.105\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

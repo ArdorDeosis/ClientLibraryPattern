@@ -71,22 +71,3 @@ public interface IServiceExample
 
 	#endregion
 }
-
-public interface IActivatableStream<out T>
-{
-	bool IsActive { get; }
-	IObservable<T>? Stream { get; }
-	Task<Result> Activate();
-	Task<Result> Deactivate();
-	Result<IDisposable> Subscribe(IObserver<T> observer) => Stream is not null
-		? Result<IDisposable>.Success(Stream.Subscribe(observer)) 
-		: "stream is inactive";
-}
-
-public interface IProcessHandlerSlot<THandler>
-{
-	bool HasProcessHandlerRegistered { get; }
-	Task<Result> RegisterProcessHandler(IFactory<ProcessHandler> handlerFactory);
-	Task<Result> DeregisterProcessHandler();
-	Task<Result> ChangeProcessHandler(IFactory<ProcessHandler> handlerFactory);
-}
