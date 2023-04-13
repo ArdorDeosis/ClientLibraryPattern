@@ -28,41 +28,65 @@ public interface IServiceExample
 	
 	// Compared to the property above, this way provides opportunity to add parameters, e.g. filters.
 	// Again, this is not async since no communication with the server is done.
+	// NOTE: we probably don't need these and should offer extension methods on top to do filtering.
 	Result<IObservable<Data>> GetEventStream();
 	
-	// TODO: is this necessary?
-	// The idea behind the IRegistration object is to clearly convey to the user that this method does not just return an
-	// event stream, but registers the client at the server potentially altering the servers behaviour. Could this be the
-	// case for any read-only event streams?
-	// 
-	// The registration will be cached as long as an active one is present.
-	Task<Result<IRegistration<Data>>> RegisterForEventStream();
+	// NOTE: we should think about designing these as if they communicated with the server, to keep this option open
 	
-	// Patterns would be imaginable in which a property provides potential registrations for easier access:
-	IObservable<int>? SomeDataStream { get; }
-	Task<Result<IRegistration<int>>> RegisterForSomeDataStream();
-
+	// Pair of register method and event stream. For cases where the server needs to be informed to send data.
+	IObservable<Data>? SpecialEventStream { get; }
+	Task<Result<IObservable<Data>>> RegisterForSpecialEventStream();
+	Task<Result> DeregisterForSpecialEventStream();
+	
+	// Alternative: this could be turned into an ActivatableStream type; see below
+	
+	// method for getting event streams filtered server-side
+	// every call provides its own observable which has to be unregistered via the returned registration
+	Task<Result<IRegistration<Data>>> RegisterFilteredEventStream(params object[] filter);
+	
 	#endregion
 	
 	#region Processes
 
-	// Starts a process on the server and returns a process handle the client can use to listen and react to status
-	// updates and intercept the process.
-	// This is basically a request returning a process handle.
-	Task<Result<IProcessHandle>> StartProcess();
+	// Starts a single process on the server and provides a handler for interaction with the process.
+	// This is basically a command providing a process handler.
+	Task<Result> StartProcess(ProcessHandler handler);
 	
-	// Subscribes to processes or certain events in processes not started by this client. Receives the corresponding
-	// process handle to interact with these processes.
-	// Basically like subscribing to an event stream, but receiving process handles.
-	//
-	// This could also return all open processes of the type.
-	// TODO: do we need this? or should we restrict processes to the registration process?
-	Task<Result<IObservable<IProcessHandle>>> SubscribeToProcessStream();
+	// Registers a process handler for processes not started by this client. In general, a client has only ever one
+	// handler of a certain type, multi-handler functionality has to run through one handler interface.
+	Task<Result> RegisterProcessHandler(ProcessHandler handler);
+	Task<Result> RegisterProcessHandler(Func<ProcessHandler> handlerFactoryMethod);
+	Task<Result> RegisterProcessHandler(IFactory<ProcessHandler> handlerFactory);
 	
-	// Registers for processes or certain events in processes not started by this client. Receives the corresponding
-	// process handles to interact with these processes.
-	// Basically like registering for an event stream, but receiving process handles.
-	Task<Result<IRegistration<IProcessHandle>>> RegisterForProcessStream();
+	// Deregisters the registered process handle.
+	Task<Result> DeregisterProcessHandler();
+	
+	// This one guarantees that no event falls through between deregistration and registration. All events in between are
+	// buffered and handled by the new handler. 
+	Task<Result> ChangeProcessHandler(ProcessHandler newHandler);
+	Task<Result> ChangeProcessHandler(Func<ProcessHandler> handlerFactoryMethod);
+	Task<Result> ChangeProcessHandler(IFactory<ProcessHandler> handlerFactory);
+	
+	// Alternative: registration and deregistration methods could be turned into a ProcessHandleSlot type; see below 
 
 	#endregion
+}
+
+public interface IActivatableStream<out T>
+{
+	bool IsActive { get; }
+	IObservable<T>? Stream { get; }
+	Task<Result> Activate();
+	Task<Result> Deactivate();
+	Result<IDisposable> Subscribe(IObserver<T> observer) => Stream is not null
+		? Result<IDisposable>.Success(Stream.Subscribe(observer)) 
+		: "stream is inactive";
+}
+
+public interface IProcessHandlerSlot<THandler>
+{
+	bool HasProcessHandlerRegistered { get; }
+	Task<Result> RegisterProcessHandler(IFactory<ProcessHandler> handlerFactory);
+	Task<Result> DeregisterProcessHandler();
+	Task<Result> ChangeProcessHandler(IFactory<ProcessHandler> handlerFactory);
 }

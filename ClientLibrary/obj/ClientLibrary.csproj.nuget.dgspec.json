@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {}
+    "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {
+    "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
         "projectName": "ClientLibrary",
-        "projectPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
-        "packagesPath": "C:\\Users\\beyer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\obj\\",
+        "projectPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj",
+        "packagesPath": "C:\\Users\\u3585\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\beyer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\u3585\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://tfs.siplaceworld.net/tfs/DefaultCollection/_packaging/ASM-NuGet/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -62,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.105\\RuntimeIdentifierGraph.json"
         }
       }
     }

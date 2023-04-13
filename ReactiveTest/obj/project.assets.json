@@ -217,19 +217,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\beyer\\.nuget\\packages\\": {}
+    "C:\\Users\\u3585\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ReactiveTest\\ReactiveTest.csproj",
+      "projectUniqueName": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ReactiveTest\\ReactiveTest.csproj",
       "projectName": "ReactiveTest",
-      "projectPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ReactiveTest\\ReactiveTest.csproj",
-      "packagesPath": "C:\\Users\\beyer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\beyer\\RiderProjects\\ClientLibraryPattern\\ReactiveTest\\obj\\",
+      "projectPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ReactiveTest\\ReactiveTest.csproj",
+      "packagesPath": "C:\\Users\\u3585\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ReactiveTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\beyer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\u3585\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -237,8 +237,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://tfs.siplaceworld.net/tfs/DefaultCollection/_packaging/ASM-NuGet/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
@@ -281,7 +280,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.105\\RuntimeIdentifierGraph.json"
       }
     }
   }
