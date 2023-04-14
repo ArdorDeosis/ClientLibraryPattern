@@ -24,7 +24,7 @@ public sealed class Result
   /// Whether the result indicates an error.
   /// </summary>
   [MemberNotNullWhen(true, nameof(ErrorMessage))]
-  public bool IsError => !IsSuccess;
+  public bool IsFailure => !IsSuccess;
 
   private Result() { }
 
@@ -32,7 +32,7 @@ public sealed class Result
   /// Implicit conversion of a string to a result indicating an error.
   /// </summary>
   /// <param name="errorMessage">The error message providing more information about what went wrong.</param>
-  public static implicit operator Result(string errorMessage) => Error(errorMessage);
+  public static implicit operator Result(string errorMessage) => Failure(errorMessage);
 
   /// <summary>
   /// A result indicating a success.
@@ -43,5 +43,5 @@ public sealed class Result
   /// A result indicating an error.
   /// </summary>
   /// <param name="errorMessage">The error message providing more information about what went wrong.</param>
-  public static Result Error(string errorMessage) => new() { ErrorMessage = errorMessage, IsSuccess = false };
+  public static Result Failure(string errorMessage) => new() { ErrorMessage = errorMessage, IsSuccess = false };
 }

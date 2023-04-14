@@ -30,9 +30,9 @@ internal partial class CustomerCode : IDisposable
   internal async Task<Result> StartInterceptingQualityChecks()
   { 
      var result = await client.RegisterQualityCheckInterceptor();
-     if (result.IsError) 
+     if (result.IsFailure) 
        return $"could not register quality check interceptor: {result.ErrorMessage}";
-     qualityCheckInterceptionRegistration = result.Data;
+     qualityCheckInterceptionRegistration = result.Value;
      subscriptions.Add(qualityCheckInterceptionRegistration.OpenProcesses.Subscribe(HandleQualityCheckInterception));
      return Result.Success;
   }
@@ -42,7 +42,7 @@ internal partial class CustomerCode : IDisposable
     if (qualityCheckInterceptionRegistration is null)
       return "not registered to intercept quality checks";
     var result = await qualityCheckInterceptionRegistration.Unregister();
-    return result.IsError 
+    return result.IsFailure 
       ? $"could not deregister quality check interceptor: {result.ErrorMessage}" 
       : Result.Success;
   }
@@ -50,9 +50,9 @@ internal partial class CustomerCode : IDisposable
   internal async Task<Result> StopMachine()
   {
     var getHandleResult = await client.StopProduction();
-    if (getHandleResult.IsError)
+    if (getHandleResult.IsFailure)
       return $"could not stop production: {getHandleResult.ErrorMessage}";
-    var handle = getHandleResult.Data;
+    var handle = getHandleResult.Value;
 
     using var subscription = handle.Events
       .OfType<IRequestWorkInProgressResolutionBehaviour>()
@@ -68,23 +68,23 @@ internal partial class CustomerCode : IDisposable
   internal async Task StartMachine()
   {
     var result = await client.StartProduction();
-    if (result.IsError)
+    if (result.IsFailure)
       Console.WriteLine($"could not start production: {result.ErrorMessage}");
   }
 
   internal async Task PrintMachineId()
   {
     var result = await client.GetMachineId();
-    if (result.IsError)
+    if (result.IsFailure)
       Console.WriteLine($"could not retrieve machine ID: {result.ErrorMessage}");
     else
-      Console.WriteLine(result.Data);
+      Console.WriteLine(result.Value);
   }
 
   private async void HandleQualityCheckInterception(IQualityCheckInterceptionProcessHandle handle)
   {
     var result = await handle.Answer(CheckQuality(handle.Quality));
-    if (result.IsError)
+    if (result.IsFailure)
     {
       // log error message
       // maybe retry

@@ -1,4 +1,6 @@
-﻿namespace ClientLibrary;
+﻿using System.Reactive.Threading.Tasks;
+
+namespace ClientLibrary;
 
 // A generic process handle. Provides an ID that can be used to identify the process.
 // This can have subscription methods and methods to interact with the specific process.
@@ -17,7 +19,6 @@ public interface IProcessHandle
 public interface IResultProcessHandle<TResult> : IProcessHandle
 {
   Task<TResult> Result { get; }
-  IObservable<TResult> ResultStream { get; }
 }
 
 public enum ProcessState

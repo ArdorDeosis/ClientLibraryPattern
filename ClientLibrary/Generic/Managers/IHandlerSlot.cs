@@ -1,44 +1,44 @@
-﻿namespace ClientLibrary;
+﻿using JetBrains.Annotations;
+
+namespace ClientLibrary;
 
 /// <summary>
 /// A registration slot for a handler factory.
 /// </summary>
-// public interface IHandlerEndpoint<in THandler>
-// public interface IHandlerRegistry<in THandler>
-public abstract class HandlerSlot<THandler>
+[PublicAPI]
+// public interface IHandlerEndpoint<THandler>
+// public interface IHandlerRegistry<THandler>
+public interface IHandlerSlot<THandler>
 {
   /// <summary>
   /// Whether a handler factory is registered.
   /// </summary>
-  public bool IsActive { get; }
-  
+  bool IsActive { get; }
+
   /// <summary>
   /// Registers a handler.
   /// </summary>
-  public ValueTask<Result> Register(THandler handler) => 
-    Register(new SimpleAsyncFactory<THandler>(() => ValueTask.FromResult(handler)));
+  ValueTask<Result> Register(THandler handler);
 
   /// <summary>
   /// Registers a handler factory method.
   /// </summary>
-  public ValueTask<Result> Register(Func<THandler> handlerFactoryMethod) =>
-    Register(new SimpleAsyncFactory<THandler>(() => ValueTask.FromResult(handlerFactoryMethod())));
-  
+  ValueTask<Result> Register(Func<THandler> handlerFactoryMethod);
+
   /// <summary>
   /// Registers a handler factory method.
   /// </summary>
-  public ValueTask<Result> Register(Func<ValueTask<THandler>> handlerFactoryMethod) =>
-    Register(new SimpleAsyncFactory<THandler>(handlerFactoryMethod));
+  ValueTask<Result> Register(Func<ValueTask<THandler>> handlerFactoryMethod);
 
   /// <summary>
   /// Registers a handler factory.
   /// </summary>
-  public abstract ValueTask<Result> Register(IFactory<THandler> handlerFactory);
+  ValueTask<Result> Register(IFactory<THandler> handlerFactory);
 
   /// <summary>
   /// Deregisters the current handler factory.
   /// </summary>
-  public abstract ValueTask<Result> Deregister();
+  ValueTask<Result> Deregister();
 
   /// <summary>
   /// Changes the current handler factory to the given handler.
@@ -47,8 +47,7 @@ public abstract class HandlerSlot<THandler>
   /// This ensures that between deregistration of the old factory and registration of the new handler no events are
   /// lost. The events occuring between deregistration and registration are buffered and handled by the new handler.
   /// </remarks>
-  public ValueTask<Result> Change(THandler handler) => 
-    Change(new SimpleAsyncFactory<THandler>(() => ValueTask.FromResult(handler)));
+  ValueTask<Result> Change(THandler handler);
 
   /// <summary>
   /// Changes the current handler factory to the given handler factory method.
@@ -58,8 +57,8 @@ public abstract class HandlerSlot<THandler>
   /// events are lost. The events occuring between deregistration and registration are buffered and handled by the new
   /// handler factory method.
   /// </remarks>
-  public ValueTask<Result> Change(Func<THandler> handlerFactoryMethod) =>
-    Change(new SimpleAsyncFactory<THandler>(() => ValueTask.FromResult(handlerFactoryMethod())));
+  ValueTask<Result> Change(Func<THandler> handlerFactoryMethod);
+
   /// <summary>
   /// Changes the current handler factory to the given handler factory method.
   /// </summary>
@@ -68,8 +67,7 @@ public abstract class HandlerSlot<THandler>
   /// events are lost. The events occuring between deregistration and registration are buffered and handled by the new
   /// handler factory method.
   /// </remarks>
-  public ValueTask<Result> Change(Func<ValueTask<THandler>> handlerFactoryMethod) =>
-    Change(new SimpleAsyncFactory<THandler>(handlerFactoryMethod));
+  ValueTask<Result> Change(Func<ValueTask<THandler>> handlerFactoryMethod);
 
   /// <summary>
   /// Changes the current handler factory to the given handler factory.
@@ -79,5 +77,5 @@ public abstract class HandlerSlot<THandler>
   /// are lost. The events occuring between deregistration and registration are buffered and handled by the new handler
   /// factory.
   /// </remarks>
-  public abstract ValueTask<Result> Change(IFactory<THandler> handlerFactory);
+  ValueTask<Result> Change(IFactory<THandler> handlerFactory);
 }

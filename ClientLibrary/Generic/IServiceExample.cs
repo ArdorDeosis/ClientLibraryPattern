@@ -31,18 +31,9 @@ public interface IServiceExample
 	// NOTE: we probably don't need these and should offer extension methods on top to do filtering.
 	Result<IObservable<Data>> GetEventStream();
 	
-	// NOTE: we should think about designing these as if they communicated with the server, to keep this option open
-	
-	// Pair of register method and event stream. For cases where the server needs to be informed to send data.
-	IObservable<Data>? SpecialEventStream { get; }
-	Task<Result<IObservable<Data>>> RegisterForSpecialEventStream();
-	Task<Result> DeregisterForSpecialEventStream();
-	
-	// Alternative: this could be turned into an ActivatableStream type; see below
-	
-	// method for getting event streams filtered server-side
-	// every call provides its own observable which has to be unregistered via the returned registration
-	Task<Result<IRegistration<Data>>> RegisterFilteredEventStream(params object[] filter);
+	IActivationStream<Data> SpecialEventStream { get; }
+
+	IActivationStream<Data, Parameters> ServerSideFilteredEventStream { get; }
 	
 	#endregion
 	
@@ -50,24 +41,10 @@ public interface IServiceExample
 
 	// Starts a single process on the server and provides a handler for interaction with the process.
 	// This is basically a command providing a process handler.
-	Task<Result> StartProcess(ProcessHandler handler);
+	Task<Result> StartProcess(IProcessHandler handler);
 	
-	// Registers a process handler for processes not started by this client. In general, a client has only ever one
-	// handler of a certain type, multi-handler functionality has to run through one handler interface.
-	Task<Result> RegisterProcessHandler(ProcessHandler handler);
-	Task<Result> RegisterProcessHandler(Func<ProcessHandler> handlerFactoryMethod);
-	Task<Result> RegisterProcessHandler(IFactory<ProcessHandler> handlerFactory);
-	
-	// Deregisters the registered process handle.
-	Task<Result> DeregisterProcessHandler();
-	
-	// This one guarantees that no event falls through between deregistration and registration. All events in between are
-	// buffered and handled by the new handler. 
-	Task<Result> ChangeProcessHandler(ProcessHandler newHandler);
-	Task<Result> ChangeProcessHandler(Func<ProcessHandler> handlerFactoryMethod);
-	Task<Result> ChangeProcessHandler(IFactory<ProcessHandler> handlerFactory);
-	
-	// Alternative: registration and deregistration methods could be turned into a ProcessHandleSlot type; see below 
+	// Slot for registering a process handler.
+	IHandlerSlot<IProcessHandler> HandlerEndpoint { get; } 
 
 	#endregion
 }

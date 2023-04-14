@@ -1,15 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "IpjrCj0dwScCSkKFEyfJ/CmFVh7MN+g/nQzky2Iwn6nwrMj+uOO197j6MvO3TXxXAbGHoSTKgHOBB82zJbXHhg==",
+  "dgSpecHash": "UUURpJYGh5/nrmDi8jakAu/19o1IVSOEkIg4yZOjbrrbrqAChYBDY3XV7w2uwgrTV9RQ9hATRkb0gOaM/O/j1g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
+  "projectFilePath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\theob\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
-    "C:\\Users\\theob\\.nuget\\packages\\system.interactive.async\\6.0.1\\system.interactive.async.6.0.1.nupkg.sha512",
-    "C:\\Users\\theob\\.nuget\\packages\\system.linq.async\\6.0.1\\system.linq.async.6.0.1.nupkg.sha512",
-    "C:\\Users\\theob\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
-    "C:\\Users\\theob\\.nuget\\packages\\system.reactive.linq\\5.0.0\\system.reactive.linq.5.0.0.nupkg.sha512",
-    "C:\\Users\\theob\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    "C:\\Users\\u3585\\.nuget\\packages\\jetbrains.annotations\\2022.3.1\\jetbrains.annotations.2022.3.1.nupkg.sha512",
+    "C:\\Users\\u3585\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\u3585\\.nuget\\packages\\system.interactive.async\\6.0.1\\system.interactive.async.6.0.1.nupkg.sha512",
+    "C:\\Users\\u3585\\.nuget\\packages\\system.linq.async\\6.0.1\\system.linq.async.6.0.1.nupkg.sha512",
+    "C:\\Users\\u3585\\.nuget\\packages\\system.reactive\\5.0.0\\system.reactive.5.0.0.nupkg.sha512",
+    "C:\\Users\\u3585\\.nuget\\packages\\system.reactive.linq\\5.0.0\\system.reactive.linq.5.0.0.nupkg.sha512",
+    "C:\\Users\\u3585\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }

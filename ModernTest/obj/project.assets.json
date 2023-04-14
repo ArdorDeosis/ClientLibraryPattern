@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "JetBrains.Annotations/2022.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "related": ".deps.json;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "related": ".deps.json;.xml"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
         "type": "package",
         "compile": {
@@ -93,6 +106,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "JetBrains.Annotations": "2022.3.1",
           "System.Reactive": "5.0.0"
         },
         "compile": {
@@ -105,6 +119,28 @@
     }
   },
   "libraries": {
+    "JetBrains.Annotations/2022.3.1": {
+      "sha512": "11nsS3+lFICGkztVs9PP2NRItxf9fF+qD6xEW/T0YGto52zj07wseUeBdMAU1ah9HNVTDZyRC1u4NWdtJScwhw==",
+      "type": "package",
+      "path": "jetbrains.annotations/2022.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "jetbrains.annotations.2022.3.1.nupkg.sha512",
+        "jetbrains.annotations.nuspec",
+        "lib/net20/JetBrains.Annotations.dll",
+        "lib/net20/JetBrains.Annotations.xml",
+        "lib/netstandard1.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard1.0/JetBrains.Annotations.dll",
+        "lib/netstandard1.0/JetBrains.Annotations.xml",
+        "lib/netstandard2.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard2.0/JetBrains.Annotations.dll",
+        "lib/netstandard2.0/JetBrains.Annotations.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
       "sha512": "UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
       "type": "package",
@@ -273,32 +309,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\theob\\.nuget\\packages\\": {}
+    "C:\\Users\\u3585\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
+      "projectUniqueName": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
       "projectName": "ModernTest",
-      "projectPath": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
-      "packagesPath": "C:\\Users\\theob\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ModernTest\\obj\\",
+      "projectPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ModernTest\\ModernTest.csproj",
+      "packagesPath": "C:\\Users\\u3585\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ModernTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\theob\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\u3585\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {
-              "projectPath": "C:\\Users\\theob\\RiderProjects\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj"
+            "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj": {
+              "projectPath": "C:\\Users\\u3585\\projects\\logistik_leitrechner\\ClientLibraryPattern\\ClientLibrary\\ClientLibrary.csproj"
             }
           }
         }
@@ -342,7 +380,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.105\\RuntimeIdentifierGraph.json"
       }
     }
   }
