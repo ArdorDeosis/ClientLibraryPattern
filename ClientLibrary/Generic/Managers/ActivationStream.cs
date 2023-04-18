@@ -24,7 +24,7 @@ internal abstract class ActivationStream<TData> : IActivationStream<TData>
     var result = await RegisterStream();
     if (result.IsFailure)
       return result;
-    subject = result.Value;
+    subject = result.Data;
     IsActive = true;
     return Result.Success;
   }
@@ -78,7 +78,7 @@ internal abstract class ActivationStream<TData, TActivationParameters> : IActiva
     var result = await RegisterStream(parameters);
     if (result.IsFailure)
       return result;
-    subject = result.Value;
+    subject = result.Data;
     IsActive = true;
     return Result.Success;
   }

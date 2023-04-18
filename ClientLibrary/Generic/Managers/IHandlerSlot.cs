@@ -18,27 +18,28 @@ public interface IHandlerSlot<THandler>
   /// <summary>
   /// Registers a handler.
   /// </summary>
-  ValueTask<Result> Register(THandler handler);
+  // NOTE: depending on in which direction we go reg. multi-process.handling, this might not be possible. 
+  Task<Result> Register(THandler handler);
 
   /// <summary>
   /// Registers a handler factory method.
   /// </summary>
-  ValueTask<Result> Register(Func<THandler> handlerFactoryMethod);
+  Task<Result> Register(Func<THandler> handlerFactoryMethod);
 
   /// <summary>
   /// Registers a handler factory method.
   /// </summary>
-  ValueTask<Result> Register(Func<ValueTask<THandler>> handlerFactoryMethod);
+  Task<Result> Register(Func<Task<THandler>> handlerFactoryMethod);
 
   /// <summary>
   /// Registers a handler factory.
   /// </summary>
-  ValueTask<Result> Register(IFactory<THandler> handlerFactory);
+  Task<Result> Register(IFactory<THandler> handlerFactory);
 
   /// <summary>
   /// Deregisters the current handler factory.
   /// </summary>
-  ValueTask<Result> Deregister();
+  Task<Result> Deregister();
 
   /// <summary>
   /// Changes the current handler factory to the given handler.
@@ -47,7 +48,8 @@ public interface IHandlerSlot<THandler>
   /// This ensures that between deregistration of the old factory and registration of the new handler no events are
   /// lost. The events occuring between deregistration and registration are buffered and handled by the new handler.
   /// </remarks>
-  ValueTask<Result> Change(THandler handler);
+  // NOTE: see single-handler method above
+  Task<Result> Change(THandler handler);
 
   /// <summary>
   /// Changes the current handler factory to the given handler factory method.
@@ -57,7 +59,7 @@ public interface IHandlerSlot<THandler>
   /// events are lost. The events occuring between deregistration and registration are buffered and handled by the new
   /// handler factory method.
   /// </remarks>
-  ValueTask<Result> Change(Func<THandler> handlerFactoryMethod);
+  Task<Result> Change(Func<THandler> handlerFactoryMethod);
 
   /// <summary>
   /// Changes the current handler factory to the given handler factory method.
@@ -67,7 +69,7 @@ public interface IHandlerSlot<THandler>
   /// events are lost. The events occuring between deregistration and registration are buffered and handled by the new
   /// handler factory method.
   /// </remarks>
-  ValueTask<Result> Change(Func<ValueTask<THandler>> handlerFactoryMethod);
+  Task<Result> Change(Func<Task<THandler>> handlerFactoryMethod);
 
   /// <summary>
   /// Changes the current handler factory to the given handler factory.
@@ -77,5 +79,5 @@ public interface IHandlerSlot<THandler>
   /// are lost. The events occuring between deregistration and registration are buffered and handled by the new handler
   /// factory.
   /// </remarks>
-  ValueTask<Result> Change(IFactory<THandler> handlerFactory);
+  Task<Result> Change(IFactory<THandler> handlerFactory);
 }

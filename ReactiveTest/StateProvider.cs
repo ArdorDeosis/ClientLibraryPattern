@@ -33,14 +33,7 @@ public struct State
 
 public struct SubState
 {
-  public required int TopLevelValue { get; set; }
-
-  void dhsajk()
-  {
-    var array = new int[5];
-    var x = new ValueList<int>();
-    array.AsValueList();
-  }
+  public required int Value { get; set; }
 }
 public class  Wrapper
 {

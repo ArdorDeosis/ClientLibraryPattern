@@ -11,7 +11,7 @@ public sealed class Result<T> where T : notnull
   /// The result data.
   /// </summary>
   /// <remarks>This is only set if the result indicates a success otherwise it the default value.</remarks>
-  public T? Value { get; private init; }
+  public T? Data { get; private init; }
 
   /// <summary>
   /// The error message providing more detail about what went wrong.
@@ -22,14 +22,14 @@ public sealed class Result<T> where T : notnull
   /// <summary>
   /// Whether the result indicates a success.
   /// </summary>
-  [MemberNotNullWhen(true, nameof(Value))]
+  [MemberNotNullWhen(true, nameof(Data))]
   [MemberNotNullWhen(false, nameof(ErrorMessage))]
   public bool IsSuccess { get; private init; }
 
   /// <summary>
   /// Whether the result indicates an error.
   /// </summary>
-  [MemberNotNullWhen(false, nameof(Value))]
+  [MemberNotNullWhen(false, nameof(Data))]
   [MemberNotNullWhen(true, nameof(ErrorMessage))]
   public bool IsFailure => !IsSuccess;
 
@@ -59,7 +59,7 @@ public sealed class Result<T> where T : notnull
   /// Creates a result indicating a success.
   /// </summary>
   /// <param name="value">The result value.</param>
-  public static Result<T> Success(T value) => new() { Value = value, IsSuccess = true };
+  public static Result<T> Success(T value) => new() { Data = value, IsSuccess = true };
 
   /// <summary>
   /// A result indicating an error.

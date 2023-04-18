@@ -45,3 +45,28 @@ public sealed class Result
   /// <param name="errorMessage">The error message providing more information about what went wrong.</param>
   public static Result Failure(string errorMessage) => new() { ErrorMessage = errorMessage, IsSuccess = false };
 }
+
+public static class ResultExtensions
+{
+  public static T OrThrow<T>(this Result<T> result) where T : notnull => 
+    result.IsSuccess ? result.Data : throw new Exception(result.ErrorMessage);
+  
+  public static void OrThrow(this Result result)
+  {
+    if (result.IsFailure) 
+      throw new Exception(result.ErrorMessage);
+  }
+  
+  public static async Task<T> OrThrow<T>(this Task<Result<T>> task) where T : notnull
+  {
+    var result = await task;
+    return result.IsSuccess ? result.Data : throw new Exception(result.ErrorMessage);
+  }
+
+  public static async Task OrThrow(this Task<Result> task)
+  {
+    var result = await task;
+    if (result.IsFailure) 
+      throw new Exception(result.ErrorMessage);
+  }
+}

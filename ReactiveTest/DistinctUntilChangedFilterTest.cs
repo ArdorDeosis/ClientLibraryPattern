@@ -15,7 +15,7 @@ public static void Run()
       .Subscribe(_ => Console.WriteLine("Top Level Value Changed")),
     stateProvider.StateStream.DistinctUntilChanged(state => state.SubState)
       .Subscribe(_ => Console.WriteLine("SubState Changed")),
-    stateProvider.StateStream.DistinctUntilChanged(state => state.SubState.TopLevelValue)
+    stateProvider.StateStream.DistinctUntilChanged(state => state.SubState.Value)
       .Subscribe(_ => Console.WriteLine("SubState Value Changed")),
   };
 
@@ -25,11 +25,11 @@ public static void Run()
     TopLevelValue = 1,
     SubState = new SubState
     {
-      TopLevelValue = 1,
+      Value = 1,
     },
     OptionalSubState = new SubState
     {
-      TopLevelValue = 1,
+      Value = 1,
     },
   };
 
@@ -39,17 +39,17 @@ public static void Run()
   stateProvider.PushState(state);
   state.SubState = new SubState
   {
-    TopLevelValue = 3,
+    Value = 3,
   };
   stateProvider.PushState(state);
   state.SubState = new SubState
   {
-    TopLevelValue = 3,
+    Value = 3,
   };
   stateProvider.PushState(state);
   state.SubState = new SubState
   {
-    TopLevelValue = 4,
+    Value = 4,
   };
   stateProvider.PushState(state);
 
