@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 namespace ClientLibrary;
 
@@ -48,25 +49,7 @@ public sealed class Result
 
 public static class ResultExtensions
 {
-  public static T OrThrow<T>(this Result<T> result) where T : notnull => 
-    result.IsSuccess ? result.Data : throw new Exception(result.ErrorMessage);
+  public static Task<T?> OrNull<T>(this Task<Result<T>> task) where T : struct => 
+    Task.FromResult<T?>(task.Result.IsSuccess ? task.Result.Data : null);
   
-  public static void OrThrow(this Result result)
-  {
-    if (result.IsFailure) 
-      throw new Exception(result.ErrorMessage);
-  }
-  
-  public static async Task<T> OrThrow<T>(this Task<Result<T>> task) where T : notnull
-  {
-    var result = await task;
-    return result.IsSuccess ? result.Data : throw new Exception(result.ErrorMessage);
-  }
-
-  public static async Task OrThrow(this Task<Result> task)
-  {
-    var result = await task;
-    if (result.IsFailure) 
-      throw new Exception(result.ErrorMessage);
-  }
 }

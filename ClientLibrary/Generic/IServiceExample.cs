@@ -12,14 +12,10 @@ public interface IServiceExample
 	// Simple request-response type action.
 	// Client sends command and receives a result as response.
 	Task<Result> DoSomething(CancellationToken cancellationToken = default);
-	Task<bool> TryDoSomething(CancellationToken cancellationToken = default);
-	Task DoSomethingOrThrow(CancellationToken cancellationToken = default);
 
 	// Simple request-response type action returning data.
 	// Client requests data and receives a result containing the requested data (if successful).
 	Task<Result<Data>> GetData(CancellationToken cancellationToken = default);
-	Task<Data?> GetDataOrNull(CancellationToken cancellationToken = default);
-	Task<Data> GetDataOrThrow(CancellationToken cancellationToken = default);
 
 	// EVENT STREAMS
 	
@@ -29,7 +25,7 @@ public interface IServiceExample
 	IObservable<Data> EventStream { get; }
 	
 	// Event stream requiring activation. The IActivationStream provides methods for activating and deactivating the
-	// stream. See IActivationStream for more detail. 
+	// stream. See IActivationStream for more detail.
 	IActivationStream<Data> SpecialEventStream { get; }
 
 	// Same as above, but with input parameters for the activation.
@@ -52,7 +48,6 @@ public interface IServiceExample
 	// - optionally we could move handler registration to the client creation, also not a nice solution
 	// - for starting single processes this would mean they also need a registered handler factory
 }
-
 
 // Parameters for Creation:
 // Logging

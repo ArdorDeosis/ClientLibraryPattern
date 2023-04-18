@@ -10,7 +10,7 @@ public sealed class MachineStartingService : IDisposable
 
 	private MachineState machineState = MachineState.NotStarted;
 	private CancellationTokenSource? cancellationTokenSource;
-
+	
 	public MachineStartingService(IPokeballCarvingStationProxy proxy, IDisplayService displayService)
 	{
 		this.proxy = proxy;
@@ -87,6 +87,7 @@ public sealed class MachineStartingService : IDisposable
 		machineState = MachineState.Started;
 		displayService.Display("machine started!");
 	}
+
 
 	private void DisplayMachineStartingMessage() => displayService.Display(
 		"starting machine",

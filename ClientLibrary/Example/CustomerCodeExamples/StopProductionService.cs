@@ -6,14 +6,12 @@ namespace ClientLibrary;
 public sealed class StopProductionService
 {
 	private readonly IPokeballCarvingStationProxy proxy;
-	private readonly IDisplayService displayService;
 
 	private WaitAndListenToCancelRequests_StopProductionProcessHandler? handler;
 
-	public StopProductionService(IPokeballCarvingStationProxy proxy, IDisplayService displayService)
+	public StopProductionService(IPokeballCarvingStationProxy proxy)
 	{
 		this.proxy = proxy;
-		this.displayService = displayService;
 	}
 
 	private void OnButtonPressed()

@@ -11,11 +11,12 @@ public static void Run()
   var subscriptions = new List<IDisposable>
   {
     stateProvider.StateStream.DistinctUntilChanged().Subscribe(_ => Console.WriteLine("State Changed")),
+    
     stateProvider.StateStream.DistinctUntilChanged(state => state.TopLevelValue)
       .Subscribe(_ => Console.WriteLine("Top Level Value Changed")),
     stateProvider.StateStream.DistinctUntilChanged(state => state.SubState)
       .Subscribe(_ => Console.WriteLine("SubState Changed")),
-    stateProvider.StateStream.DistinctUntilChanged(state => state.SubState.Value)
+    stateProvider.StateStream.DistinctUntilChanged(state => state.SubState.Value).Select(state => state.TopLevelValue == 3)
       .Subscribe(_ => Console.WriteLine("SubState Value Changed")),
   };
 

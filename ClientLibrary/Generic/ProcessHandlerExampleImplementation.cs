@@ -6,7 +6,11 @@ public class ProcessHandlerExampleImplementation : ProcessHandlerExample
 {
 	public ProcessHandlerExampleImplementation()
 	{
-		var subscription = EventStream.DistinctUntilChanged().Subscribe(ReceivedData);
+		var subscription = EventStream
+			.DistinctUntilChanged()
+			.Subscribe(ReceivedData);
+
+		IObservable<float> stream = null!;
 	}
 	
 	protected override async Task<Decision> MakeDecision(Data data, CancellationToken cancellationToken = default)
