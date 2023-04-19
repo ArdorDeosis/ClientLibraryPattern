@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 
 namespace ClientLibrary;
 
@@ -34,7 +33,7 @@ public sealed class Result
   /// </summary>
   /// <param name="errorMessage">The error message providing more information about what went wrong.</param>
   public static implicit operator Result(string errorMessage) => Failure(errorMessage);
-
+  
   /// <summary>
   /// A result indicating a success.
   /// </summary>
@@ -45,11 +44,4 @@ public sealed class Result
   /// </summary>
   /// <param name="errorMessage">The error message providing more information about what went wrong.</param>
   public static Result Failure(string errorMessage) => new() { ErrorMessage = errorMessage, IsSuccess = false };
-}
-
-public static class ResultExtensions
-{
-  public static Task<T?> OrNull<T>(this Task<Result<T>> task) where T : struct => 
-    Task.FromResult<T?>(task.Result.IsSuccess ? task.Result.Data : null);
-  
 }

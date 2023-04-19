@@ -4,8 +4,8 @@
 // even if the operation currently is synchronous. The Result is the best way to handle errors, even if the operation 
 // currently cannot fail.
 // 
-// All Task-returning members could be changed to return Tasks instead.
-public interface IServiceExample
+// Note: All Task-returning members could be changed to return ValueTasks instead.
+public interface IProxy
 {
 	// REQUESTS & COMMANDS
 	
@@ -35,10 +35,12 @@ public interface IServiceExample
 
 	// Starts a single process on the server and provides a handler for interaction with the process.
 	// This is basically a command providing a process handler.
-	Task<Result> StartProcess(ProcessHandlerExample handlerExample, CancellationToken cancellationToken = default);
+	Task<Result<ProcessHandlerExample>> StartProcess(ProcessHandlerExample handlerExample, CancellationToken cancellationToken = default);
+	Task<Result<ProcessHandlerExample>> StartProcess(Action<ProcessHandlerExample> handlerExampleFactoryMethod, CancellationToken cancellationToken = default);
+	Task<Result<ProcessHandlerExample>> StartProcess(IFactory<ProcessHandlerExample> handlerExampleFactory, CancellationToken cancellationToken = default);
 	
 	// Slot for registering a process handler.
-	IHandlerSlot<ProcessHandlerExample> HandlerEndpoint { get; }
+	IHandlerEndpoint<ProcessHandlerExample> HandlerEndpoint { get; }
 	
 	// TODO: processes might be a problem in terms of error handling!
 	// If the user has the possibility to just register and deregister handlers, the user might not register a type of

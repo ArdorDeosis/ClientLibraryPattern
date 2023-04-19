@@ -3,7 +3,7 @@
 /// <inheritdoc />
 // public abstract class HandlerEndpoint<THandler>
 // public abstract class HandlerRegistry<THandler>
-internal abstract class HandlerSlot<THandler> : IHandlerSlot<THandler>
+internal abstract class HandlerEndpoint<THandler> : IHandlerEndpoint<THandler>
 {
   /// <inheritdoc />
   public bool IsActive { get; protected set; }

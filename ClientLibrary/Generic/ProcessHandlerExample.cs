@@ -6,21 +6,18 @@ public abstract class ProcessHandlerExample
 	
 	// state property
 	// for sub-classes readonly
-	protected Data SomeState { get; private set; }
+	protected Data State { get; private set; }
 	
 	
 	// EVENTS
 	
 	// optionally observables
 	// opens up option for replay subjects etc.
-	protected IObservable<Data> EventStream { get; private set; }
+	protected IObservable<Data> DataStream { get; private set; }
 	
 	// event model based on methods <== I quite like this one
 	protected virtual void OnEventHappened(Data data) {}
 	
-	// TODO: should we allow async methods? we're not waiting on it anyways, I guess?
-	protected virtual Task OnAnotherEventHappened(Data data) => Task.CompletedTask;
-
 	
 	// DECISION MAKING
 

@@ -7,11 +7,18 @@ namespace ClientLibrary;
 /// </summary>
 public sealed class Result<T> where T : notnull
 {
+  private readonly T data;
+
   /// <summary>
   /// The result data.
   /// </summary>
   /// <remarks>This is only set if the result indicates a success otherwise it the default value.</remarks>
-  public T? Data { get; private init; }
+  public T Data
+  {
+    [DoesNotReturnIf(true)]
+    get => IsSuccess ? data : throw new InvalidOperationException("result indicates a failure, no data is available");
+    private init => data = value;
+  }
 
   /// <summary>
   /// The error message providing more detail about what went wrong.

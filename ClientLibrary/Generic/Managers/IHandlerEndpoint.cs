@@ -8,7 +8,7 @@ namespace ClientLibrary;
 [PublicAPI]
 // public interface IHandlerEndpoint<THandler>
 // public interface IHandlerRegistry<THandler>
-public interface IHandlerSlot<THandler>
+public interface IHandlerEndpoint<THandler>
 {
   /// <summary>
   /// Whether a handler factory is registered.
