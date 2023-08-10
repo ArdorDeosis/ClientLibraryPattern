@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
 namespace ClientLibrary;
+
 /// <summary>
 /// A result type containing data. Provides information about whether an operation was successful or not and either the
 /// result data in case of a success or an error message in case of failure.
@@ -15,7 +16,6 @@ public sealed class Result<T> where T : notnull
   /// <remarks>This is only set if the result indicates a success otherwise it the default value.</remarks>
   public T Data
   {
-    [DoesNotReturnIf(true)]
     get => IsSuccess ? data : throw new InvalidOperationException("result indicates a failure, no data is available");
     private init => data = value;
   }

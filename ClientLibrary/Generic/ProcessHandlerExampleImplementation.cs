@@ -2,42 +2,34 @@
 
 namespace ClientLibrary;
 
-public class ProcessHandlerExampleImplementation : ProcessHandlerExample
+public sealed class ProcessHandlerExampleImplementation : ProcessHandlerExample, IDisposable
 {
+	private readonly ICollection<IDisposable> disposables = new List<IDisposable>();
+
 	public ProcessHandlerExampleImplementation()
 	{
-		var subscription = EventStream
+		disposables.Add(DataStream
 			.DistinctUntilChanged()
-			.Subscribe(ReceivedData);
-
-		IObservable<float> stream = null!;
+			.Subscribe(ReceivedData));
 	}
 	
 	protected override async Task<Decision> MakeDecision(Data data, CancellationToken cancellationToken = default)
 	{
 		await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
-		return SomeState.Number > 0 
+		return Random.Shared.Next(2) == 0 
 			? Decision.Approve 
 			: Decision.Deny;
 	}
 	
-	// protected override async Task<Decision> MakeOptionalDecision(Data data, CancellationToken cancellationToken = default)
-	// {
-	// 	await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
-	// 	return SomeState.Number > 0 
-	// 		? Decision.Approve 
-	// 		: Decision.Deny;
-	// }
-
 	private void ReceivedData(Data data)
 	{
-		if (data.Number > 1000)
-			InterruptProcess().ContinueWith(task =>
-			{
-				if (task.Result.IsFailure)
-				{
-					// error handling
-				}
-			});
+		if (data.Number > 9000)
+			Console.WriteLine("Number was over 9000!");
+	}
+
+	public void Dispose()
+	{
+		foreach (var disposable in disposables) 
+			disposable.Dispose();
 	}
 }
