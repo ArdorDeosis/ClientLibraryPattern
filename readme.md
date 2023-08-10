@@ -1,5 +1,5 @@
 # Proxy API Style Guide
-A quick guide on how the PCC proxy API is designed. 
+A quick guide on how this proxy API was designed. 
 
 ## Simple Requests & Commands
 Simple request/response-pattern interactions follow this form:
